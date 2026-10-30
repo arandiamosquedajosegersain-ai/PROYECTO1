@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30/Octubre/2026 ❤️</title>
+  <style>
+    :root {
+      --primary-color: #e63946;
+      --bg-pink: #fce4ec;
+      --card-bg: #ffffff;
+      --text-color: #4a4a4a;
+      --border-color: #f8bbd0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-pink);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card-bg);
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 25px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PANTALLA 1: PORTADA */
+    .gift-heart-btn {
+      font-size: 80px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin: 30px 0;
+      animation: pulse 1.5s infinite;
+      outline: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* PANTALLA 2: BRINDIS Y AUDIO */
+    .cheers-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin: 15px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    }
+
+    .voice-note {
+      background: #fff0f3;
+      padding: 12px 15px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border-color);
+      margin: 15px 0;
+    }
+
+    .voice-waves {
+      flex-grow: 1;
+      height: 25px;
+      background: repeating-linear-gradient(90deg, #e63946, #e63946 3px, transparent 3px, transparent 8px);
+      border-radius: 4px;
+    }
+
+    .btn-main {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-main:hover {
+      background-color: #d62839;
+    }
+
+    /* PANTALLA 3: PORTADA ESPECIAL + MÚSICA + CONTENIDO */
+    .hero-card {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 15px;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+      color: white;
+      text-align: center;
+    }
+
+    .hero-subtitle {
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Georgia', serif;
+    }
+
+    .hero-names {
+      font-size: 14px;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    .hero-date {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-top: 8px;
+      opacity: 0.75;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 2px dashed var(--border-color);
+    }
+
+    /* Reproductor de Música */
+    .music-player {
+      background: #fff0f3;
+      border-radius: 18px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    .album-art {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #222;
+      border: 3px solid #ffb7c5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .spin {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .music-info {
+      text-align: left;
+      flex-grow: 1;
+    }
+    .music-title { font-weight: bold; color: #333; font-size: 14px; }
+    .music-artist { color: #777; font-size: 12px; }
+
+    .play-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Galería */
+    .gallery-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding-bottom: 10px;
+    }
+
+    .gallery-container img {
+      width: 170px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Carta */
+    .letter-box {
+      background: #fff8f9;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.6;
+      border: 1px solid var(--border-color);
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    /* Línea del Tiempo */
+    .timeline-item {
+      text-align: left;
+      background: #fff0f3;
+      padding: 12px 15px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      color: #d62839;
+      font-weight: bold;
+    }
+
+    /* Cuestionario */
+    .question {
+      background: #fff5f7;
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .question p {
+      font-weight: bold;
+      margin-top: 0;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .options label {
+      display: block;
+      background: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin: 6px 0;
+      border: 1px solid #ebd0d5;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .options label:hover {
+      background: #ffe6ea;
+    }
+
+    .error-msg {
+      color: var(--primary-color);
+      font-size: 13px;
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* PANTALLA 4: ANIMACIÓN DEL CARRO Y VALE */
+    .road-container {
+      width: 100%;
+      height: 120px;
+      background: #f0f0f0;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      margin: 20px 0;
+      border-bottom: 4px solid #bbb;
+    }
+
+    .road-line {
+      position: absolute;
+      bottom: 25px;
+      width: 100%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, #aaa, #aaa 15px, transparent 15px, transparent 30px);
+    }
+
+    .car-wrapper {
+      position: absolute;
+      bottom: 20px;
+      left: -100px;
+      width: 90px;
+      height: 70px;
+      animation: driveCar 5s linear infinite;
+    }
+
+    @keyframes driveCar {
+      0% { left: -100px; }
+      100% { left: 105%; }
+    }
+
+    /* Personaje encima del carro */
+    .character {
+      position: absolute;
+      top: 0;
+      left: 32px;
+      width: 26px;
+      height: 32px;
+    }
+    .head {
+      width: 22px;
+      height: 22px;
+      background: #ffe0bd;
+      border-radius: 50%;
+      border: 2px solid #333;
+      position: relative;
+      margin: 0 auto;
+    }
+    .hair {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 22px;
+      height: 10px;
+      background: #222;
+      border-radius: 10px 10px 0 0;
+    }
+    .face-smile {
+      position: absolute;
+      bottom: 3px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border-bottom: 2px solid #333;
+      border-radius: 0 0 4px 4px;
+    }
+    .body-shirt {
+      width: 18px;
+      height: 14px;
+      background: #e63946;
+      border-radius: 6px 6px 0 0;
+      margin: -2px auto 0;
+      border: 2px solid #333;
+    }
+
+    /* Carro */
+    .car-body {
+      position: absolute;
+      bottom: 12px;
+      left: 10px;
+      width: 70px;
+      height: 28px;
+      background: #ffd166;
+      border: 3px solid #333;
+      border-radius: 10px 15px 5px 5px;
+    }
+
+    .wheel {
+      position: absolute;
+      bottom: 4px;
+      width: 18px;
+      height: 18px;
+      background: #333;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      animation: spinWheel 0.5s linear infinite;
+    }
+    .wheel-left { left: 18px; }
+    .wheel-right { right: 18px; }
+
+    @keyframes spinWheel {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Tarjeta Vale */
+    .coupon-card {
+      background: #fff;
+      border: 3px dashed var(--primary-color);
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-align: center;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- PANTALLA 1: PORTADA CON EL CORAZÓN -->
+<div id="screen1" class="screen active">
+  <p style="font-weight: bold; letter-spacing: 2px; color: #888; font-size: 12px;">TIENES UN REGALO</p>
+  <h1>Para mi persona favorita </h1>
+
+  <!-- CONTENEDOR PARA LOS DOS GIFS LADO A LADO -->
+  <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0;">
+    <img src="gatodance.gif" alt="GIF 1" style="width: 130px; max-width: 45%; height: auto; border-radius: 10px;">
+    <img src="gato2.gif" alt="GIF 2" style="width: 130px; max-width: 45%; height: auto; border-radius: 10px;">
+  </div>
+
+  <!-- CORAZÓN ABAJO DE LOS GIFS -->
+  <button class="gift-heart-btn" onclick="goToScreen(2)">❤️</button>
+  <p style="color: #666; font-size: 14px;">Toca el corazón para descubrir tu regalo🤭🤭</p>
+</div>
+    <!-- PANTALLA 2: BRINDIS + NOTA DE VOZ -->
+    <div id="screen2" class="screen">
+      <h1> Hoy es un dia muy especial </h1>
+       30/Octubre/2026 
+      <p style="font-size: 16px; font-weight: bold; color: #333;">
+        Si estás leyendo esto es porque aceptaste ser mi novia ^_^✨
+      </p>
+      
+     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagen Completa</title>
+    <style>
+        .cheers-img {
+            width: 57%;       
+            height: 700px;     /* Define una altura fija si lo requieres */
+            object-fit: cover; /* Llena el espacio recortando los excedentes sin deformar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen brindando -->
+    <img class="cheers-img" src="gato.jpeg" alt="Brindis">
+</body>
+</html>
+      
+     <!-- Mensaje de Voz colocado aquí -->
+<div class="voice-note">
+    <!-- Botón que reproduce/pausa el audio -->
+    <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+    <div class="voice-waves"></div>
+
+    <!-- Elemento de audio oculto (reemplaza 'tu-audio.mp3' por tu archivo) -->
+    <audio id="myAudio" src="novia.mpeg"></audio>
+</div>
+
+<!-- Script para controlar la reproducción -->
+<script>
+    function toggleAudio() {
+        const audio = document.getElementById('myAudio');
+        const btn = document.getElementById('playBtn');
+
+        if (audio.paused) {
+            audio.play();
+            btn.textContent = '⏸'; // Cambia el icono a pausa
+        } else {
+            audio.pause();
+            btn.textContent = '▶'; // Cambia el icono a reproducir de nuevo
+        }
+
+        // Cuando el audio termine, regresa el botón a la normalidad
+        audio.onended = function() {
+            btn.textContent = '▶';
+        };
+    }
+</script>
+
+      <button class="btn-main" onclick="goToScreen(3)">CONTINUAR 💖</button>
+    </div>
+
+    <!-- PANTALLA 3: PORTADA ESPECIAL Y CONTENIDO COMPLETO -->
+    <div id="screen3" class="screen">
+      
+      <!-- Foto Principal con Nombres y Fecha (Póster como el del video) -->
+      <div class="hero-card">
+        <!-- Puedes cambiar el enlace de esta foto por la suya juntos -->
+        <img src="billar.jpeg" alt="Portada">
+        <div class="hero-overlay">
+          <div class="hero-subtitle">PARA</div>
+          <div class="hero-title">Guille</div>
+          <div class="hero-names">Gersa y Guille</div>
+          <div class="hero-date">DE GERSA • 30 DE OCTUBRE DE 2026</div>
+        </div>
+      </div>
+
+     
+      <!-- Galería de Fotos -->
+      <div class="section">
+        <h3>📸 Algunas de mis fotos favoritas</h3>
+        <div class="gallery-container">
+          <img src="flor.jpeg" alt="Foto 1">
+          <img src="cine.jpeg" alt="Foto 2">
+          <img src="carro.jpeg" alt="Foto 3">
+          <img src="flores.jpeg" alt="Foto 4">
+          <img src="cel.jpeg" alt="Foto 5">
+          <img src="billar2.jpeg" alt="Foto 6">
+          <img src="PRO1.jpeg" alt="Foto 7">
+          <img src="PRO 2.jpeg" alt="Foto 8">
+          
+        </div>
+      </div>
+     
+
+     <!-- Carta de Amor -->
+<div class="section">
+  <h3>💌 Carta para ti</h3>
+  
+  <!-- CONTENEDOR FLEX PARA PONER FOTO Y CARTA LADO A LADO -->
+  <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+    
+    <!-- FOTO (Ajusta la ruta y el ancho máximo a tu gusto, ej: 120px) -->
+    <img src="mensaje.jpeg" alt="Foto especial" style="width: 190px; height: auto; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+   <!-- CAJA DE LA CARTA -->
+  <div class="letter-box" style="flex: 1; min-width: 200px; margin: 0;">
+    <p>Hola, mi amor,</p>
+    <p>Quien iba a pensar que ese primer mensaje de instagram nos llevaria hasta aca , ni en mis mejores suenós me imagine vivir todo lo que estoy viviendo contigo🥰</p>
+    <p>Poco a poco te has convertido en una persona muy especial para mi, cada momento que compartimos hace que me gustes mas,lo mejor esta por venir aun nos falta seguir sumando muchos recuerdos.</p>
+    <p style="text-align: right; font-weight: bold; margin-bottom: 0;">— Te quiero mi niña ❤️</p>
+  </div>
+
+  </div>
+</div>
+
+<!-- Apartado del Cronómetro / Contador de Tiempo Juntos -->
+<div class="section" style="text-align: center; margin-top: 30px;">
+  <h3>😶‍🌫️ El inicio de algo bonito</h3>
+  <p id="timer-message" style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">
+    
+</button>
+
+<script>
+  function reiniciarCronometro() {
+    localStorage.removeItem('fechaInicioAmor');
+    location.reload(); // Recarga la página automáticamente
+  }
+</script>
+  </p>
+
+  <!-- Botón para activar el cronómetro (si ya se guardó antes, se ocultará solo) -->
+  <button id="btnEmpezar" onclick="iniciarCronometro()" style="background: #ff4d6d; color: white; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 25px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3); transition: 0.3s; margin-bottom: 20px;">
+    ¡Empezar a contar! ⌛
+  </button>
+
+  <div class="timer-container">
+    <div class="time-card">
+      <span id="days">0</span>
+      <p>Días</p>
+    </div>
+    <div class="time-card">
+      <span id="hours">00</span>
+      <p>Horas</p>
+    </div>
+    <div class="time-card">
+      <span id="minutes">00</span>
+      <p>Minutos</p>
+    </div>
+    <div class="time-card">
+      <span id="seconds">00</span>
+      <p>Segundos</p>
+    </div>
+  </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+  .timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .time-card {
+    background: #fff0f3;
+    border: 2px solid #ff4d6d;
+    border-radius: 12px;
+    padding: 12px 16px;
+    min-width: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .time-card span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #c9184a;
+    display: block;
+  }
+
+  .time-card p {
+    margin: 4px 0 0 0;
+    font-size: 0.8rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #btnEmpezar:hover {
+    background: #c9184a;
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- Script JavaScript con memoria local -->
+<script>
+  let intervalo = null;
+
+  function calcularTiempo(fechaInicio) {
+    const ahora = new Date();
+    const diferencia = ahora - new Date(fechaInicio);
+
+    const segundosTotales = Math.floor(diferencia / 1000);
+    const dias = Math.floor(segundosTotales / (3600 * 24));
+    const horas = Math.floor((segundosTotales % (3600 * 24)) / 3600);
+    const minutos = Math.floor((segundosTotales % 3600) / 60);
+    const segundos = Math.floor(segundosTotales % 60);
+
+    document.getElementById('days').innerText = dias;
+    document.getElementById('hours').innerText = horas < 10 ? '0' + horas : horas;
+    document.getElementById('minutes').innerText = minutos < 10 ? '0' + minutos : minutos;
+    document.getElementById('seconds').innerText = segundos < 10 ? '0' + segundos : segundos;
+  }
+
+  function iniciarCronometro() {
+    // Guarda la fecha actual exacta en la memoria del navegador
+    const fechaActual = new Date().toISOString();
+    localStorage.setItem('fechaInicioAmor', fechaActual);
+
+    // Oculta o cambia el botón y arranca el contador
+    configurarVistaActiva();
+    
+    if (intervalo) clearInterval(intervalo);
+    intervalo = setInterval(() => calcularTiempo(fechaActual), 1000);
+    calcularTiempo(fechaActual);
+  }
+
+  function configurarVistaActiva() {
+    const boton = document.getElementById('btnEmpezar');
+    boton.innerText = 'Y así comenzó todo 🥰';
+    boton.style.background = '#2d6a4f';
+    boton.disabled = true;
+  }
+
+  // Al cargar la página, revisa si ya se había guardado una fecha antes
+  window.onload = function() {
+    const fechaGuardada = localStorage.getItem('fechaInicioAmor');
+    
+    if (fechaGuardada) {
+      // Si ya existía una fecha guardada, arranca el cronómetro automáticamente
+      configurarVistaActiva();
+      if (intervalo) clearInterval(intervalo);
+      intervalo = setInterval(() => calcularTiempo(fechaGuardada), 1000);
+      calcularTiempo(fechaGuardada);
+    }
+  };
+  
+</script>
+     
+
+      <!-- Cuestionario de 2 Preguntas -->
+      <div class="quiz-container">
+        <h2>Una última sorpresa... 🙊</h2>
+        <p style="font-size: 13px; color: #666;">Responde estas 2 preguntas para tener la oportunidad de ganar algo🫣</p>
+
+        <form id="quizForm">
+          <div class="question">
+            <p>1. ¿Dónde fue nuestro primer beso? (●'◡'●)</p>
+            <div class="options">
+              <label><input type="radio" name="p1" value="incorrecta"> En el coche</label>
+              <label><input type="radio" name="p1" value="correcta"> Afuera de tu casa </label>
+              <label><input type="radio" name="p1" value="incorrecta"> En el billar</label>
+            </div>
+          </div>
+
+          <div class="question">
+            <p>2. ¿Cual fue la primer pelicula que vimos juntos en el cine? 🍿📽️</p>
+            <div class="options">
+              <label><input type="radio" name="p2" value="incorrecta"> Your name</label>
+              <label><input type="radio" name="p2" value="correcta"> Resident Evil</label>
+              <label><input type="radio" name="p2" value="incorrecta">Spiderman</label>
+            </div>
+          </div>
+
+          <div id="errorMsg" class="error-msg">Te doy chance de volverlo a intentar😉</div>
+          <button type="button" class="btn-main" onclick="validarQuiz()">Descubrir mi premio 💖</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- PANTALLA 4: ANIMACIÓN DEL CARRO Y TARJETA DEL VALE -->
+    <div id="screen4" class="screen">
+      <h2> FELICIDADES HAS GANADO UNOS TAQUITOS! 😋😋</h2>
+
+      <!-- Animación del Carro -->
+      <div class="road-container">
+        <div class="road-line"></div>
+        <div class="car-wrapper">
+          <div class="character">
+            <div class="head">
+              <div class="hair"></div>
+              <div class="face-smile"></div>
+            </div>
+            <div class="body-shirt"></div>
+          </div>
+          <div class="car-body"></div>
+          <div class="wheel wheel-left"></div>
+          <div class="wheel wheel-right"></div>
+        </div>
+      </div>
+
+    
+
+     <!-- Tarjeta del Vale -->
+<div class="coupon-card">
+  <p style="letter-spacing: 2px; font-size: 12px; color: #888; font-weight: bold; margin-top: 0;">VALE ESPECIAL</p>
+  <div style="font-size: 50px; margin: 10px 0;">🌮🔥</div>
+  <p style="font-size: 20px; font-weight: bold; color: var(--primary-color); margin: 5px 0;">
+    Vale por unos taquitos al pastor
+  </p>
+  <p style="font-size: 13px; color: #777; margin-top: 15px;">Válido cuando tú quieras.</p>
+  <h3 style="margin-top: 5px; color: #333;">🚗🛵🏃‍♂️‍➡️🚐 Yo paso por ti, tu solo ponte bonita como siempre🥰 </h3>
+
+  <!-- BOTÓN PARA REGRESAR AL INICIO -->
+  <button onclick="goToScreen(1)" style="margin-top: 20px; padding: 10px 20px; background-color: var(--primary-color, #ff4b5c); color: white; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 14px;">
+    🔄 Ver de nuevo
+  </button>
+</div>
+
+  <script>
+    function goToScreen(screenNumber) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + screenNumber).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    let isPlaying = false;
+    function togglePlay() {
+      const disc = document.getElementById('disc');
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        disc.classList.add('spin');
+      } else {
+        disc.classList.remove('spin');
+      }
+    }
+
+    function validarQuiz() {
+      const p1 = document.querySelector('input[name="p1"]:checked');
+      const p2 = document.querySelector('input[name="p2"]:checked');
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (p1 && p2 && p1.value === 'correcta' && p2.value === 'correcta') {
+        errorMsg.style.display = 'none';
+        goToScreen(4);
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
